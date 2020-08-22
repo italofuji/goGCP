@@ -1,5 +1,5 @@
 steps:
-    - name: 'gcr.io/cloud-builders/docker'
+    - name: 'gcr.io/gogcp-287215/docker'
         args: ['build', '-t', 'gcr.io/gogcp-287215/go-gcp:latest', '-t', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA', '.']
 
     - name: 'docker'
