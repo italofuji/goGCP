@@ -8,6 +8,8 @@ steps:
     - name: 'docker'
         args: ['exec', 'goapp', 'go', 'test']
 
+    # Teste
+
     # - name: 'docker'
     #     args: ['push', 'gcr.io/gogcp-287215/go-gcp:latest']
 
