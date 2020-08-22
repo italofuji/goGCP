@@ -1,18 +1,18 @@
 steps:
-    - name: 'gcr.io/cloud-builders/docker'
-      args: ['build', '-t', 'gcr.io/gogcp-287215/go-gcp:latest', '-t', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/gogcp-287215/go-gcp:latest', '-t', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA', '.']
 
-    - name: 'docker'
-      args: ['run', '-d', '--name', 'goapp', 'gcr.io/gogcp-287215/go-gcp:latest']
+  - name: 'docker'
+    args: ['run', '-d', '--name', 'goapp', 'gcr.io/gogcp-287215/go-gcp:latest']
 
-    - name: 'docker'
-      args: ['exec', 'goapp', 'go', 'test']
+  - name: 'docker'
+    args: ['exec', 'goapp', 'go', 'test']
 
-    - name: 'docker'
-      args: ['push', 'gcr.io/gogcp-287215/go-gcp:latest']
+  - name: 'docker'
+    args: ['push', 'gcr.io/gogcp-287215/go-gcp:latest']
 
-    - name: 'docker'
-			args: ['push', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA']
-				
-		- name: 'gcr.io/cloud-builders/gcloud'
-			args: ['run', 'deploy', 'go-app', '--image', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA', '--region', 'us-central1', '--plataform', 'managed', '--allow-unauthenticated']
+  - name: 'docker'
+    args: ['push', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'go-app', '--image', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA', '--region', 'us-central1', '--plataform', 'managed', '--allow-unauthenticated']
