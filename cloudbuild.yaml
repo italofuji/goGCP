@@ -8,10 +8,8 @@ steps:
     - name: 'docker'
       args: ['exec', 'goapp', 'go', 'test']
 
-    # Comment
+    - name: 'docker'
+        args: ['push', 'gcr.io/gogcp-287215/go-gcp:latest']
 
-    # - name: 'docker'
-    #     args: ['push', 'gcr.io/gogcp-287215/go-gcp:latest']
-
-    # - name: 'docker'
-    #     args: ['push', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA']
+    - name: 'docker'
+        args: ['push', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA']
