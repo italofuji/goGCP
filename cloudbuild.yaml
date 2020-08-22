@@ -12,4 +12,6 @@ steps:
         args: ['push', 'gcr.io/gogcp-287215/go-gcp:latest']
 
     - name: 'docker'
-        args: ['push', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA']
+				args: ['push', 'gcr.io/gogcp-287215/go-gcp:$SHORT_SHA']
+				
+		# Comment
